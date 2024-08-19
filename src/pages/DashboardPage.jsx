@@ -1,4 +1,3 @@
-import React from 'react'
 import AddPost from 'components/templates/AddPost'
 import PostsList from 'src/components/templates/PostsList'
 

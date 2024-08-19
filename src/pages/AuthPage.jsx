@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+
 import SendOtpForm from 'components/templates/SendOtpForm'
 import CheckOtpForm from 'components/templates/CheckOtpForm'
 

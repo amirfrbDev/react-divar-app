@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
+
 import { sendOtp } from 'services/auth';
 
-import styles from 'components/templates/SendOtpForm.module.css';
 import { p2e } from 'src/utils/numbers';
 import toast from 'react-hot-toast';
+
+import styles from 'components/templates/SendOtpForm.module.css';
 
 function SendOtpForm({ setStep, phoneNumber, setPhoneNumber }) {
 
@@ -24,8 +26,6 @@ function SendOtpForm({ setStep, phoneNumber, setPhoneNumber }) {
     }
 
     const { response, error } = await sendOtp(p2e(phoneNumber));
-
-    // console.log(response)
 
     if (error) console.log(error.response.data.message);
 

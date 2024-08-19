@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query"
+
 import { getPosts as queryFn } from "src/services/user";
+
 import Loader from "../modules/Loader";
-import { sp } from "src/utils/numbers";
-import styles from "./PostsList.module.css"
 import PostsListCard from "./PostsListCard";
+
+import styles from "./PostsList.module.css"
 
 function PostsList() {
 

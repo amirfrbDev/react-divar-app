@@ -1,6 +1,8 @@
 import { createQueryObject } from "src/helper/helper";
-import styles from "./Sidebar.module.css"
+
 import { Box, Grid } from '@mui/material';
+
+import styles from "./Sidebar.module.css"
 
 function Sidebar({ categories, category, setCategory, setQuery }) {
 

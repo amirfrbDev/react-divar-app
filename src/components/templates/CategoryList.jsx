@@ -1,5 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+
 import { deleteCategory, getCategories as queryFn } from 'src/services/admin';
+
 import Loader from '../modules/Loader';
 
 

@@ -1,7 +1,8 @@
 import { sp } from 'src/utils/numbers';
 
-import styles from "./Main.module.css";
 import { Grid } from '@mui/material';
+
+import styles from "./Main.module.css";
 
 function Main({ displayed }) {
 

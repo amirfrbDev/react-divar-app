@@ -5,9 +5,10 @@ import { checkOtp } from 'services/auth';
 import { setCookie } from 'utils/cookie';
 import { getProfile as queryFn } from "src/services/user";
 
-import styles from "components/templates/CheckOtpForm.module.css"
 import { p2e } from 'src/utils/numbers';
 import toast from 'react-hot-toast';
+
+import styles from "components/templates/CheckOtpForm.module.css"
 
 function CheckOtpForm({ code, setCode, setStep, phoneNumber, }) {
 

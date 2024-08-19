@@ -1,14 +1,12 @@
-import { Box, Button, Grid, Typography } from '@mui/material'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
-import React, { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+
 import { getAllPosts } from 'src/services/user'
+
 import Loader from '../modules/Loader'
-import styles from "./AdminAllPosts.module.css"
-import { sp } from 'src/utils/numbers'
-import DeletePostModal from './DeletePostModal'
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import DeleteIcon from '@mui/icons-material/Delete';
 import PostsListCard from './PostsListCard'
+
+import { Grid, Typography } from '@mui/material'
+
 
 function AllPosts() {
 

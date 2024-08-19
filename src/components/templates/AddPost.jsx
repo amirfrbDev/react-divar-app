@@ -1,11 +1,14 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import React, { useState, useRef } from 'react';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+
 import { getCategories as queryFn } from 'src/services/admin';
-import styles from "./AddPost.module.css";
 import { getCookie } from 'src/utils/cookie';
+
 import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { p2e } from 'src/utils/numbers';
+
+import styles from "./AddPost.module.css";
 
 function AddPost() {
 

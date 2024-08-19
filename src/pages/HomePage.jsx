@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import Sidebar from 'components/templates/Sidebar'
-import Main from 'components/templates/Main'
+import  { useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { useSearchParams } from 'react-router-dom'
+
 import { getAllPosts } from 'src/services/user'
 import { getCategories } from 'src/services/admin';
-import Loader from 'src/components/modules/Loader'
-import { Grid } from '@mui/material'
 import { displayByCategory } from 'src/helper/helper'
-import { useSearchParams } from 'react-router-dom'
+
+import Sidebar from 'components/templates/Sidebar'
+import Main from 'components/templates/Main'
+import Loader from 'src/components/modules/Loader'
+
+import { Grid } from '@mui/material'
 
 
 function HomePage() {
@@ -30,7 +33,6 @@ function HomePage() {
     });
 
     if (displayed === "" && !postLoading) {
-        console.log(posts?.data.posts)
         setDisplayed(posts?.data.posts)
     }
 
