@@ -1,0 +1,40 @@
+.list {
+    margin: 50px 0 70px;
+}
+
+.list div {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid #eaeaea;
+    border-radius: 5px;
+}
+
+.list img {
+    user-select: none;
+}
+
+.list h5 {
+    margin-right: 10px;
+    font-size: .9rem;
+    width: 120px;
+}
+
+.list p {
+    width: 100%;
+    text-align: left;
+    color: #a62626;
+}
+
+.list span {
+    color: #a62626;
+    margin-right: 25px;
+    font-size: 1.8rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

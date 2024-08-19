@@ -1,0 +1,60 @@
+.post {
+    display: flex;
+    align-items: center;
+    border: 2px solid #eaeaea;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.post img {
+    width: 100px;
+    height: 70px;
+    border-radius: 3px;
+    margin-left: 30px;
+}
+
+.post div {
+    width: 100%;
+}
+
+.post p {
+    font-size: .9rem;
+}
+
+.post span {
+    font-size: .8rem;
+    color: grey;
+}
+.post price {
+    width: 150px;
+    text-align: center;
+}
+
+.menuButton {
+    border-radius: 0;
+    border: none;
+    background-color: #ececec;
+    padding: 6px;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menuButton:hover {
+    background-color: #dddddd;
+}
+
+.menuButton:not(:last-of-type) {
+    border-bottom: 1px solid rgba(153, 153, 153, 0.445);
+}
+
+.menuButton:first-of-type{
+    border-radius: 5px 5px 0 0 ;
+}
+
+.menuButton:last-of-type{
+    border-radius: 0 0 5px 5px;
+}
