@@ -1,10 +1,12 @@
-import { createQueryObject } from "src/helper/helper";
+import { createQueryObject } from "@/helper/helper";
 
 import { Box, Grid } from '@mui/material';
 
 import styles from "./Sidebar.module.css"
 
-function Sidebar({ categories, category, setCategory, setQuery }) {
+import Loader from "@/components/modules/Loader"
+
+function Sidebar({ categoryLoading, categories, category, setCategory, setQuery }) {
 
     const categoryHandler = (event) => {
         const categoryId = event.currentTarget.dataset.categoryId
@@ -13,8 +15,10 @@ function Sidebar({ categories, category, setCategory, setQuery }) {
         setQuery(query => createQueryObject(query, { category: categoryId }))
     }
 
+    if (categoryLoading) return <Loader />
+
     return (
-        <Grid item className={styles.sidebar} xs={12} md={2.3} flexDirection="column">
+        <Grid item className={styles.sidebar} xs={12} sm={4} md={3.2} lg={2.3} flexDirection="column">
             <h4>دسته ها</h4>
             <ul>
                 <Box component="li" onClick={categoryHandler} data-category-id="all" className={styles.allCategories} sx={{ width: "97%", padding: "5px", borderRadius: '5px', cursor: "pointer", transition: "all 0.2s", '&:hover': { bgcolor: '#eaeaea' } }}>

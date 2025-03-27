@@ -1,5 +1,5 @@
-import { api } from "src/configs/api";
-import { getCookie } from "utils/cookie"
+import { api } from "@/configs/api";
+import { getCookie } from "@/utils/cookie"
 
 const getNewTokens = async () => {
     const refreshToken = getCookie("refreshToken")

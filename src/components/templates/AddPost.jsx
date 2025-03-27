@@ -1,12 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { getCategories as queryFn } from 'src/services/admin';
-import { getCookie } from 'src/utils/cookie';
+import { getCategories } from '@/services/admin';
+import { getAllPosts } from '@/services/user'
+import { getCookie } from '@/utils/cookie';
 
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { p2e } from 'src/utils/numbers';
+import { p2e } from '@/utils/numbers';
 
 import styles from "./AddPost.module.css";
 
@@ -37,7 +38,7 @@ function AddPost() {
 
     }
 
-    const { data: addPostData, isLoading, mutate } = useMutation({
+    const { isLoading, mutate } = useMutation({
         mutationFn,
         onSuccess: (res) => {
             setForm({
@@ -56,7 +57,10 @@ function AddPost() {
 
             toast.success(res.data.message);
             queryClient.invalidateQueries({ queryKey: ["my-post-list"] })
-            // queryClient.invalidateQueries({ queryKey: ["post-list"] })
+
+            queryClient.prefetchQuery(['post-list'], getAllPosts)
+            queryClient.invalidateQueries({ queryKey: ["post-list"] })
+            // console.log("post was made!")
         },
         onError: (error) => {
             toast.warn("مشکلی پیش آمده است!")
@@ -66,7 +70,7 @@ function AddPost() {
 
     const { data } = useQuery({
         queryKey: ["get-categories"],
-        queryFn
+        queryFn: getCategories
     });
 
 
@@ -93,7 +97,9 @@ function AddPost() {
             formData.append(i, form[i]);
         }
 
-        mutate(formData)
+        mutate(formData, {
+
+        })
 
 
     };

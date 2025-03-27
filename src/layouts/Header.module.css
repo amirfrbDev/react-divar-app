@@ -94,19 +94,19 @@ span img {
     margin-left: 5px;
 }
 
-.menu div:hover {
+.menu a:hover {
     background-color: rgb(228, 228, 228);
 }
 
-.menu div:not(:last-of-type) {
+.menu a:not(:last-of-type) {
     border-bottom: 1px solid rgba(201, 201, 201, 0.8);
 }
 
-.menu div:first-of-type {
+.menu a:first-of-type {
     border-radius: 5px 5px 0 0 ;
 }
 
-.menu div:last-of-type {
+.menu a:last-of-type {
     border-radius:0 0 5px 5px  ;
 }
 

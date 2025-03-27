@@ -1,8 +1,9 @@
 const displayByCategory = (posts, categoryId) => {
-    if (categoryId === "all" && !categoryId) {
+    if (categoryId === "" || categoryId === "all") {
         return posts
     }
     const categorizedPosts = posts.filter(post => post.category === categoryId);
+    console.log(categorizedPosts)
     return categorizedPosts
 }
 

@@ -1,6 +1,6 @@
-import AllPosts from 'src/components/templates/AdminAllPosts'
-import CategoryForm from 'src/components/templates/CategoryForm'
-import CategoryList from 'src/components/templates/CategoryList'
+import AllPosts from '@/components/templates/AdminAllPosts'
+import CategoryForm from '@/components/templates/CategoryForm'
+import CategoryList from '@/components/templates/CategoryList'
 
 function AdminPage() {
   return (

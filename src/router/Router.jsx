@@ -1,20 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { getProfile as queryFn } from "src/services/user";
 
-import AuthPage from "pages/AuthPage";
-import HomePage from "pages/HomePage";
-import AdminPage from "pages/AdminPage";
-import DashboardPage from "pages/DashboardPage";
-import NotFoundPage from "pages/404";
-    
-import Loader from "src/components/modules/Loader";
+
+import AuthPage from "@/pages/AuthPage";
+import HomePage from "@/pages/HomePage";
+import AdminPage from "@/pages/AdminPage";
+import DashboardPage from "@/pages/DashboardPage";
+import NotFoundPage from "@/pages/404";
+
+import Loader from "@/components/modules/Loader";
+import { getProfile } from "@/services/user";
 
 function Router() {
 
-    const queryKey = ["profile"];
-    const { data, isLoading, error } = useQuery({ queryKey, queryFn });
+    const { data, isLoading, error } = useQuery({
+        queryKey: ["profile"],
+        queryFn: getProfile
+    });
 
     if (isLoading) return <Loader />;
     if (error) return <div>Error: {error.message}</div>;

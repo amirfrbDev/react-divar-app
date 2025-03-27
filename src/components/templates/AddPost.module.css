@@ -16,6 +16,8 @@
 .form textarea {
     display: block;
     width: 300px;
+    max-width: 300px;
+    min-width: 300px;
     padding: 5px;
     border: 1px solid silver;
     border-radius: 5px;
@@ -25,7 +27,8 @@
 .form textarea {
     height: 100px;
     min-width: 300px;
-    min-height: 100px;
+    min-height: 200px;
+    max-height: fit-content;
 }
 
 

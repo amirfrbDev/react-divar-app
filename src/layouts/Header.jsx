@@ -1,31 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from "./Header.module.css"
 import { useQuery, useQueryClient } from '@tanstack/react-query'
-import { getProfile as queryFn } from 'src/services/user'
-import { deleteCookie } from 'src/utils/cookie'
+import { getProfile } from '@/services/user'
+import { deleteCookie } from '@/utils/cookie'
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import toast from 'react-hot-toast'
 
 function Header() {
+    const navigate = useNavigate()
+
     const queryClient = useQueryClient()
+
+    const menuRef = useRef()
 
     const [showMenu, setShowMenu] = useState(true)
 
-    const queryKey = ["profile"]
-
     const { data } = useQuery({
-        queryKey,
-        queryFn
+        queryKey: ["profile"],
+        queryFn: getProfile
     })
 
-    const navigate = useNavigate()
 
     useEffect(() => {
         setShowMenu(false)
-    }, [window.location.href])
+    }, [window.location.href]);
+
+    useEffect(() => {
+        const outsideClickHandler = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setShowMenu(false)
+            }
+        }
+
+        document.addEventListener("mousedown", outsideClickHandler)
+
+        return () => {
+            document.removeEventListener("mousedown", outsideClickHandler)
+        }
+
+    }, [])
 
 
     const menuHandler = () => {
@@ -37,8 +53,6 @@ function Header() {
         }
     }
 
-
-
     const logoutHandler = () => {
         deleteCookie("accessToken");
         deleteCookie("refreshToken");
@@ -47,6 +61,8 @@ function Header() {
         toast.success("از حساب خود خارج شدید!")
         setShowMenu(false)
     }
+
+
 
     return (
         <header className={styles.header}>
@@ -68,27 +84,29 @@ function Header() {
                     </span>
                     {
                         showMenu && (
-                            <div className={styles.menu} id='menu'>
+                            <div className={styles.menu} id='menu' ref={menuRef}>
                                 {data?.data.role === "ADMIN" && (
-                                    <div>
-                                        <Link to="/admin">
+                                    <Link to="/admin">
+                                        <div>
                                             <img src="setting.svg" alt="" width="20px" />
                                             <p>پنل ادمین</p>
-                                        </Link>
-                                    </div>
+                                        </div>
+                                    </Link>
                                 )}
-                                <div>
-                                    <Link to="dashboard">
+                                <Link to="dashboard">
+                                    <div>
                                         {/* <img src="profile.svg" alt="" /> */}
                                         <PersonIcon style={{ color: "#969696", marginLeft: "5px" }} />
                                         <p>پروفایل</p>
-                                    </Link>
-                                </div>
-                                <div className={styles.logoutButton} onClick={logoutHandler}>
+                                    </div>
+                                </Link>
+                                <Link className={styles.logoutButton} onClick={logoutHandler}>
 
-                                    <LogoutIcon style={{ color: "grey", marginLeft: "5px" }} />
-                                    <p>خروج</p>
-                                </div>
+                                    <div>
+                                        <LogoutIcon style={{ color: "grey", marginLeft: "5px" }} />
+                                        <p>خروج</p>
+                                    </div>
+                                </Link>
 
                             </div>
                         )

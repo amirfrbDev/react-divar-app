@@ -64,6 +64,11 @@
     margin-bottom: 10px;
 }
 
+.form button:disabled {
+    opacity: 0.5;
+    background-color: #444444 !important;
+}
+
 .form button:hover {
     background-color: #d32f2f;
     transform: scale(1.05);

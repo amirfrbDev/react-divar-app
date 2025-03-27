@@ -1,5 +1,5 @@
-import AddPost from 'components/templates/AddPost'
-import PostsList from 'src/components/templates/PostsList'
+import AddPost from '@/components/templates/AddPost'
+import PostsList from '@/components/templates/PostsList'
 
 function DashboardPage() {
   return (

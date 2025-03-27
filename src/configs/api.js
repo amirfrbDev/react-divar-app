@@ -1,7 +1,7 @@
 import axios from "axios";
-import { getNewTokens } from "services/token";
-import { setCookie } from "src/utils/cookie";
-import { getCookie } from "utils/cookie";
+import { getNewTokens } from "@/services/token";
+import { setCookie } from "@/utils/cookie";
+import { getCookie } from "@/utils/cookie";
 
 const api = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
@@ -9,9 +9,6 @@ const api = axios.create({
         "Content-Type": "application/json"
     }
 })
-
-
-
 
 
 api.interceptors.request.use(request => {

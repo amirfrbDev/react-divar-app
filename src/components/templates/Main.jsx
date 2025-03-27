@@ -1,4 +1,4 @@
-import { sp } from 'src/utils/numbers';
+import { sp } from '@/utils/numbers';
 
 import { Grid } from '@mui/material';
 
@@ -9,10 +9,10 @@ function Main({ displayed }) {
     const BASE_URL = import.meta.env.VITE_BASE_URL;
 
     return (
-        <Grid item xs={12} md={9.3} className={styles.container}>
+        <Grid item xs={12} sm={8} md={8.5} lg={9.3} className={styles.container}>
             <Grid container spacing={1}  >
                 {displayed?.map(post => (
-                    <Grid item key={post._id} xs={12} sm={6} md={6} lg={4}>
+                    <Grid item key={post._id} xs={12} sm={10} md={6} lg={4}>
                         <div className={styles.card}>
                             <div className={styles.info}>
                                 <p>{post?.options?.title}</p>

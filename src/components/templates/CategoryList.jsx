@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
-import { deleteCategory, getCategories as queryFn } from 'src/services/admin';
+import { deleteCategory, getCategories as queryFn } from '@/services/admin';
 
-import Loader from '../modules/Loader';
+import Loader from '@/components/modules/Loader';
 
 
 import styles from "./CategoryList.module.css"

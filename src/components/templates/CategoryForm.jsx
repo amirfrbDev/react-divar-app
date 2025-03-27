@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import { addCategory as mutationFn } from 'src/services/admin'
+import { addCategory as mutationFn } from '@/services/admin'
 
-import Loader from '../modules/Loader'
+import Loader from '@/components/modules/Loader'
 
 import styles from "./CategoryForm.module.css"
 
